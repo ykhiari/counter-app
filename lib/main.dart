@@ -38,6 +38,28 @@ class HomePage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
+            BlocListener<CounterCubit, CounterState>(
+              listener: (context, state) {
+                if (state.wasIncremented) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      duration: const Duration(milliseconds: 300),
+                      backgroundColor: Colors.green.shade200,
+                      content: const Text('Incremented'),
+                    ),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      duration: const Duration(milliseconds: 300),
+                      backgroundColor: Colors.red.shade200,
+                      content: const Text('Decremented'),
+                    ),
+                  );
+                }
+              },
+              child: Container(),
+            ),
           ],
         ),
       ),
