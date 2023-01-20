@@ -36,9 +36,15 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Counter value:'),
-            Text(context.select(
-                (CounterCubit cubit) => cubit.state.counterValue.toString())),
+            const Text(
+              'Counter Value:',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            Text(
+                context.select((CounterCubit cubit) =>
+                    cubit.state.counterValue.toString()),
+                style:
+                    const TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
             const SizedBox(
               height: 10,
             ),
