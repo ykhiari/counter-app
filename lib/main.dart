@@ -4,9 +4,11 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:simple_counter_app/data/themes/app_theme.dart';
 import 'package:simple_counter_app/logic/cubit/counter_cubit.dart';
+import 'package:simple_counter_app/logic/utility/counter_observer.dart';
 import 'package:simple_counter_app/view/pages/home_page.dart';
 
 void main() async {
+  Bloc.observer = MyBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
   HydratedBloc.storage = await HydratedStorage.build(
       storageDirectory: await getApplicationDocumentsDirectory());
